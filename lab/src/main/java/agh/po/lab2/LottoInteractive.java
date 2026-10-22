@@ -11,28 +11,23 @@ public class LottoInteractive
         Random r = new Random();
         int num;
         int n = 0;
-        boolean is;
 
         for(int j = 0; j < 6; j++) {
-            num = r.nextInt(1, 49);
+            num = r.nextInt(1, 50);
             if(arr.contains(num))
-                arr.add(r.nextInt(1,49));
+                arr.add(r.nextInt(1,50));
             else {
                 arr.add(num);
             }
         }
 
         ArrayList<Integer> argsArray = new ArrayList<>();
-
         for (String str: args){
             n = Integer.parseInt(str);
             argsArray.add(n);
-            is = arr.contains(n);
-            if (is) {
-                int shots = (Boolean.compare(is, Boolean.TRUE) + 1) * n;
-                correct.add(shots);
+            if (arr.contains(n)) {
+                correct.add(n);
             }
-
         }
 
         System.out.println("Twoje typy: " + argsArray);
